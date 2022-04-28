@@ -4,7 +4,7 @@ import functions as f
 
 def main():
     try:
-        print(color.BLUE + "\nЧто решаем?:\n1 - одно уравнение\n2 - систему\n3 - хочу выйти")
+        print(color.BLUE + "\nНужно решить:\n1 - одно уравнение\n2 - систему\n3 - хочу выйти")
         choice = input("> ")
         while (choice != '1') and (choice != '2') and (choice != '3'):
             print("Воспользуйтесь командами, предложенными в меню!")
@@ -20,7 +20,7 @@ def main():
             exit(0)
         else:
             x, y, system = f.solve_system()
-            print(f"\nКорни уравнения: ({x:.8f}, {y:.8f}), Отличается на: ({system[0](x, y):.8f} , {system[1](x, y):.8f})")
+            print(f"\nКорни уравнения: ({x:.8f}, {y:.8f}), Последняя разница: ({system[0](x, y):.8f} , {system[1](x, y):.8f})")
 
     except KeyboardInterrupt:
         print(color.RED + "\n\nПрограмма прервана:(")
