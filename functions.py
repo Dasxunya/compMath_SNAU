@@ -5,8 +5,8 @@ import matplotlib.pyplot as plt
 FILE_IN = "C:/Users/Dasxunya/Desktop/ITMO/comp_math/lab_2/input.txt"
 
 
+# TODO: подсчет производной функции
 def d(n, x, f, h=0.00000001):
-    """ Найти значение производной функции """
     if n <= 0:
         return None
     elif n == 1:
@@ -15,16 +15,17 @@ def d(n, x, f, h=0.00000001):
     return (d(n - 1, x + h, f) - d(n - 1, x, f)) / h
 
 
+# TODO: подсчет значения частной производной для переменной x
 def pdx(x, y, f):
-    """ Найти значение частной производной функции x"""
     return (f(x + 0.00000001, y) - f(x, y)) / 0.00000001
 
 
+# TODO: подсчет значения частной производной для переменной y
 def pdy(x, y, f):
-    """ Найти значение частной производной функции y"""
     return (f(x, y + 0.00000001) - f(x, y)) / 0.00000001
 
 
+# TODO: Проверка существования предела
 def check_convergence(system, x, y):
     maximum = 0
     for equation in system:
@@ -40,8 +41,8 @@ def check_convergence(system, x, y):
     return maximum < 1
 
 
+# TODO: Метод Ньютона (касательных)
 def newton_method(x0, f, e, maxitr=100):
-    """" Метод касательных """
     x, x_prev, i = x0, x0 + 2 * e, 0
 
     while abs(x - x_prev) >= e and i < maxitr:
@@ -50,9 +51,8 @@ def newton_method(x0, f, e, maxitr=100):
     return x
 
 
+# TODO:Метод простой итерации  для уравнения
 def iteration_method(x0, f, e, maxitr=100):
-    """ Метод простой итерации """
-
     def g(g_x):
         return g_x + (-1 / d(1, g_x, f)) * f(g_x)
 
@@ -66,9 +66,8 @@ def iteration_method(x0, f, e, maxitr=100):
     return x
 
 
+# TODO:Метод простой итерации для системы
 def iteration_method_systems2(x0, y0, system, e, maxitr=100):
-    """ Метод простой итерации для систем"""
-
     def gx(g_x, g_y):
         return g_x - system[0](g_x, g_y)
 
@@ -93,8 +92,8 @@ def iteration_method_systems2(x0, y0, system, e, maxitr=100):
     return x, y
 
 
+# TODO: Отрисовка графика по заданным x и y
 def plot(x, y):
-    """ Отрисовать график по заданным x и y """
     plt.gcf().canvas.manager.set_window_title("График функции")
     ax = plt.gca()
     ax.spines['left'].set_position('zero')
@@ -134,7 +133,6 @@ def getfunc(function_num):
 
 
 def file_input():
-    """ Получить данные из файла """
     with open(FILE_IN, 'r', encoding='utf-8') as fin:
         try:
             data = {}
