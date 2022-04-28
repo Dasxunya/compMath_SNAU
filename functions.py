@@ -1,6 +1,7 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+# input - для уравнения, input1 - для системы
 FILE_IN = "C:/Users/Dasxunya/Desktop/ITMO/comp_math/lab_2/input.txt"
 
 
@@ -326,6 +327,9 @@ def solve_equation():
         if data is None:
             print("\nПри считывании данных из файла произошла ошибка!")
             exit(1)
+        answer1 = newton_method(data['b'], data['function'], data['error'])
+        answer2 = iteration_method(data['b'], data['function'], data['error'])
+
     else:
         data = manual_input()
 
@@ -346,7 +350,7 @@ def solve_system():
     choice = input("> ")
     while (choice != '1') and (choice != '2'):
         print("Введите '1' или '2' для выбора способа ввода!")
-        choice = input("Режим ввода: ")
+        choice = input("> ")
 
     if choice == '1':
         data = file_input_systems()
