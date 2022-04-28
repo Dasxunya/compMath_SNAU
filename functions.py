@@ -339,6 +339,7 @@ def solve_equation():
         answer2 = iteration_method(data['x0'], data['function'], data['error'])
         if answer2 is None:
             print("Не выполняется условие сходимости.")
+            exit(1)
     return answer1, answer2
 
 

@@ -20,7 +20,7 @@ def main():
             exit(0)
         else:
             x, y, system = f.solve_system()
-            print(f"\nКорни уравнения: ({x:.8f}, {y:.8f}), Проверка: ({system[0](x, y):.8f} , {system[1](x, y):.8f})")
+            print(f"\nКорни уравнения: ({x:.8f}, {y:.8f}), Отличается на: ({system[0](x, y):.8f} , {system[1](x, y):.8f})")
 
     except KeyboardInterrupt:
         print(color.RED + "\n\nПрограмма прервана:(")
